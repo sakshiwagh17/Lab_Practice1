@@ -3,14 +3,14 @@ from functools import partial
 def validatelogin(username,email,var1,var2,password):
     print("username entered :",username.get())
     print("email entered :",email.get())
-    print("gender entered :",var1.get(),var2.get())
+    print("gender entered:",var1.get(),var2.get())
     print("password :",password.get())
     lognSucess = Label(tkWindow, text="Login Sucessful").grid(row=5, column=0)
     return
 def clearLogin(username,email,var1,var2,password): 
-    usernameEntry.delete(0,'end')
-    emailEntery.delete(0,'end')
-    passwordEntry.delete(0, 'end')
+    usernameEntry=""
+    emailEntery=""
+    passwordEntry=""
     return
 
 #Window
