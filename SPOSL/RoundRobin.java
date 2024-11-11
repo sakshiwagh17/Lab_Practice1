@@ -51,7 +51,5 @@ public class RoundRobin {
         System.out.println("-------------------------------------------------------------------");
         System.out.println("\nAverage waiting Time = " + avg_WT/n);
         System.out.println("Average turnaround time = " + avg_TAT/n);
-
-        
     }
 }
