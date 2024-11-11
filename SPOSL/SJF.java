@@ -39,11 +39,12 @@ public class SJF {
         System.out.println("--------------------------------------------");
         System.out.println("process\t\tAT\tBT\tCT\tTAT\tWT");
         System.out.println("-------------------------------------------");
-        for(int i=0;i<process.length;i++){
-            if(i==0)
-                CT[0]=AT[0]+CT[0];
-            else
-                CT[i]=Math.max(CT[i-1],AT[i])+BT[i];
+        for(int i=0;i<n;i++){
+            if(i==0){
+                CT[0]=AT[0]+BT[0];
+            }else{
+                CT[i]=CT[i-1]+BT[i];
+            }
             TAT[i]=CT[i]-AT[i];
             WT[i]=TAT[i]-BT[i];
             avg_TAT+=TAT[i];
