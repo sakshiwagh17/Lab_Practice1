@@ -21,15 +21,29 @@ public class FCFS {
             System.out.println("Enter the burst time:");
             BT[i]=sc.nextInt();
         }
+        for(int i=0;i<process.length;i++){
+            for(int j=i+1;j<process.length;j++){
+                if(AT[i]>AT[j]){
+                    int tempAT=AT[i];
+                    AT[i]=AT[j];
+                    AT[j]=tempAT;
+                    int tempP=process[i];
+                    process[i]=process[j];
+                    process[j]=tempP;
+                    int tempBT=BT[i];
+                    BT[i]=BT[j];
+                    BT[j]=tempBT;
+                }
+            }
+        }
+        CT[0]=AT[0]+BT[0];
+        for(int i=1;i<process.length;i++){
+            CT[i]=CT[i-1]+BT[i];
+        }
         System.out.println("--------------------------------------------");
         System.out.println("process\t\tAT\tBT\tCT\tTAT\tWT");
         System.out.println("----------------------------------------");
         for(int i=0;i<process.length;i++){
-            if(i==0)
-                CT[0]=AT[0]+BT[0];
-            else
-                CT[i]=Math.max(CT[i-1],AT[i])+BT[i];
-            
             TAT[i]=CT[i]-AT[i]; //turnaround=completion-arrival
             WT[i]=TAT[i]-BT[i]; //waiting=turnaround-burst
             avg_TAT+=TAT[i];
